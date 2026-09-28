@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    private EnemyAI enemyAI;
-    private EnemyMovement enemyMovement;
-    private EnemyAnimation enemyAnimation;
-    private CapsuleCollider2D capsuleCollider;
+    CapsuleCollider2D capsuleCollider;
+
+    EnemyAI enemyAI;
+    EnemyMovement enemyMovement;
+    EnemyAnimation enemyAnimation;
 
     void Awake()
     {
@@ -31,7 +32,7 @@ public class EnemyHealth : MonoBehaviour
         Invoke(nameof(DeActive), 5f);
     }
 
-    private void DeActive()
+    void DeActive()
     {
         gameObject.SetActive(false);
     }

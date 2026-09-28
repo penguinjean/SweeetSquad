@@ -31,14 +31,8 @@ public class UIManager : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (instance == null) { instance = this; }
+        else { Destroy(gameObject); }
     }
 
     void Start()
@@ -70,14 +64,8 @@ public class UIManager : MonoBehaviour
     {
         for (int i = 0; i < heartImagesList.Count; i++)
         {
-            if (i < currentHp)
-            {
-                heartImagesList[i].sprite = fullHeart;
-            }
-            else
-            {
-                heartImagesList[i].sprite = brokenHeart;
-            }
+            if (i < currentHp) { heartImagesList[i].sprite = fullHeart; }
+            else { heartImagesList[i].sprite = brokenHeart; }
         }
     }
 
@@ -98,7 +86,6 @@ public class UIManager : MonoBehaviour
         inGameUI.SetActive(false);
         gameOver.SetActive(true);
         gameEndUI.SetActive(true);
-
     }
 
     public void ShowGameClear()
@@ -106,9 +93,7 @@ public class UIManager : MonoBehaviour
         inGameUI.SetActive(false);
         gameClear.SetActive(true);
         gameEndUI.SetActive(true);
-
     }
-
 
     #region Buttons
     public void OnClickGameStart()

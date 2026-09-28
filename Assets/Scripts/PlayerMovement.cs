@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D rigid;
 
-    public bool isJumping { get; set; }
+    internal bool isJumping;
 
     void Awake()
     {
@@ -27,10 +27,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // 감속 처리 (키에서 손을 뗐을 때)
-        if (playerInput.isHorizontalUp)
-        {
-            rigid.linearVelocity = new Vector2(rigid.linearVelocity.normalized.x * 0.5f, rigid.linearVelocity.y);
-        }
+        if (playerInput.isHorizontalUp) { rigid.linearVelocity = new Vector2(rigid.linearVelocity.normalized.x * 0.5f, rigid.linearVelocity.y); }
     }
 
     void FixedUpdate()
@@ -49,10 +46,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.DrawRay(rigid.position, Vector3.down * 1.2f, Color.green);
             RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, Vector3.down, 1.2f, LayerMask.GetMask("Platform"));
 
-            if (rayHit.collider != null && rayHit.distance < 1f)
-            {
-                isJumping = false;
-            }
+            if (rayHit.collider != null && rayHit.distance < 1f) { isJumping = false; }
         }
     }
 

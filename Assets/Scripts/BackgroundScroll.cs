@@ -19,10 +19,7 @@ public class BackgroundScroll : MonoBehaviour
 
     void Start()
     {
-        if (mainCamera == null)
-        {
-            mainCamera = Camera.main.transform;
-        }
+        if (mainCamera == null) { mainCamera = Camera.main.transform; }
 
         lastCameraPos = new Vector2(mainCamera.position.x, mainCamera.position.y);
     }

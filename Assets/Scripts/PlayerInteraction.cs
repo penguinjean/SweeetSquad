@@ -81,14 +81,8 @@ public class PlayerInteraction : MonoBehaviour
         {
             Vector2 normal = collision.GetContact(0).normal;
 
-            if (rigid.linearVelocity.y < 0 && normal.y > 0.5f)
-            {
-                OnAttack(collision.transform);
-            }
-            else
-            {
-                TryTakeDamage(collision.transform.position);
-            }
+            if (rigid.linearVelocity.y < 0 && normal.y > 0.5f) { OnAttack(collision.transform); }
+            else { TryTakeDamage(collision.transform.position); }
         }
     }
 
@@ -111,7 +105,6 @@ public class PlayerInteraction : MonoBehaviour
     void HandleItem(GameObject item)
     {
         // 파티클 실행
-
         if (item.TryGetComponent<IItemEffect>(out var itemEffect)) { itemEffect.ApplyEffect(); }
 
         item.SetActive(false);

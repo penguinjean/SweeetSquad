@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class EnemyAnimation : MonoBehaviour
 {
-    private Animator anim;
-    private SpriteRenderer spriteRenderer;
+    Animator anim;
+    SpriteRenderer spriteRenderer;
 
     void Awake()
     {
@@ -15,10 +15,7 @@ public class EnemyAnimation : MonoBehaviour
     {
         anim.SetInteger("WalkSpeed", nextMove);
 
-        if (nextMove != 0)
-        {
-            spriteRenderer.flipX = (nextMove == 1);
-        }
+        if (nextMove != 0) { spriteRenderer.flipX = (nextMove == 1); }
     }
 
     public void PlayDeathVisuals()

@@ -22,10 +22,7 @@ public class PlayerAnimation : MonoBehaviour
     void Update()
     {
         // 스프라이트 뒤집기
-        if (playerInput.isHorizontalPressed)
-        {
-            spriteRenderer.flipX = playerInput.horizontal == -1;
-        }
+        if (playerInput.isHorizontalPressed) { spriteRenderer.flipX = playerInput.horizontal == -1; }
 
         // 걷기 애니메이션
         bool isWalking = Mathf.Abs(rigid.linearVelocity.x) > 0.01f;

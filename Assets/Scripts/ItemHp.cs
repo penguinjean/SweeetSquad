@@ -2,14 +2,11 @@ using UnityEngine;
 
 public class ItemHp : MonoBehaviour, IItemEffect
 {
-    public int HpValue;
+    public int hpValue;
 
     public void ApplyEffect()
     {
-        if (GameManager.instance.currentHealth < GameManager.instance.maxHealth)
-        {
-            GameManager.instance.currentHealth = Mathf.Min(GameManager.instance.currentHealth + HpValue, GameManager.instance.maxHealth);
-        }
+        if (GameManager.instance.currentHealth < GameManager.instance.maxHealth) { GameManager.instance.currentHealth += hpValue; }
         else
         {
             // 캐릭터 재질 바꾸고

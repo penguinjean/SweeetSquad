@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    private Rigidbody2D rigid;
-    private EnemyAI enemyAI;
+    Rigidbody2D rigid;
+    EnemyAI enemyAI;
 
     void Awake()
     {
@@ -13,7 +13,7 @@ public class EnemyMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rigid.linearVelocity = new Vector2(enemyAI.NextMove, rigid.linearVelocity.y);
+        rigid.linearVelocity = new Vector2(enemyAI.nextMove, rigid.linearVelocity.y);
     }
 
     public void AddKnockbackForce(Vector2 force)

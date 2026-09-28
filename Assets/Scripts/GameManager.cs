@@ -22,15 +22,8 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
+        if (instance == null) { instance = this; }
+        else { Destroy(gameObject); return; }
 
         if (player != null)
         {
@@ -43,11 +36,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
 
-        for (int i = 0; i < stages.Length; i++)
-        {
-            stages[i].SetActive(false);
-        }
-
+        for (int i = 0; i < stages.Length; i++) { stages[i].SetActive(false); }
         player.SetActive(false);
     }
 
@@ -96,7 +85,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
 
-        if (playerHp != null) playerHp.OnDie();
+        if (playerHp != null) { playerHp.OnDie(); }
         stages[stageIndex].SetActive(false);
 
         UIManager.instance.ShowGameOver();
