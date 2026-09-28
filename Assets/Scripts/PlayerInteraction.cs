@@ -11,6 +11,9 @@ public class PlayerInteraction : MonoBehaviour
     [Header("Clear Score")]
     public int stageClearScore;
 
+    [Header("Enemy Score")]
+    public int enemyDie;
+
     PlayerHealth playerHealth;
     PlayerMovement playerMovement;
 
@@ -95,7 +98,7 @@ public class PlayerInteraction : MonoBehaviour
 
         if (enemyHealth != null)
         {
-            enemyHealth.OnDamaged();
+            enemyHealth.OnDamaged(enemyDie);
             playerMovement.AddStompForce();
         }
     }

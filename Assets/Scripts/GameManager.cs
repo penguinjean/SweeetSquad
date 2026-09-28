@@ -86,12 +86,10 @@ public class GameManager : MonoBehaviour
 
     public void HealthDown()
     {
-        if (currentHealth <= 0) { return; }
+        if (currentHealth <= 1) { GameOver(); }
 
         currentHealth--;
         UIManager.instance.UpdateHp(currentHealth);
-
-        if (currentHealth <= 0) { GameOver(); }
     }
 
     public void GameOver()

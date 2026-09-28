@@ -16,7 +16,7 @@ public class EnemyHealth : MonoBehaviour
         enemyAnimation = GetComponent<EnemyAnimation>();
     }
 
-    public void OnDamaged()
+    public void OnDamaged(int scoreValue)
     {
         enemyAI.StopAI();
 
@@ -24,6 +24,9 @@ public class EnemyHealth : MonoBehaviour
 
         enemyAnimation.PlayDeathVisuals();
         enemyMovement.AddKnockbackForce(Vector2.up * 5f);
+
+        GameManager.instance.score += scoreValue;
+        UIManager.instance.UpdateScore(GameManager.instance.score);
 
         Invoke(nameof(DeActive), 5f);
     }
